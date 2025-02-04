@@ -11,7 +11,7 @@ void binarySearch(const vector<int>& arr, double x) {
         int mid = low + (high - low) / 2;
 
         if (arr[mid] <= x) {
-            result = mid;
+            result = arr[mid];
             low = mid + 1;
         } else {
             high = mid - 1;

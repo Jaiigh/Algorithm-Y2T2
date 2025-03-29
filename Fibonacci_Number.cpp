@@ -8,7 +8,7 @@ int fibonacci(int N)
     if (N == 1)
         return 1;
     if (N == 2)
-        return 1;
+        return 2;
 
     vector<int> dp(N + 1);
     dp[0] = 0;

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-long long binomialCoefficient(int n, int k)
+long long binomialCoefficientOptimized(int n, int k)
 {
     vector<long long> dp(k + 1, 0);
     dp[0] = 1;
@@ -23,6 +23,6 @@ int main()
 {
     int n, k;
     cin >> n >> k;
-    cout << binomialCoefficient(n, k) << endl;
+    cout << binomialCoefficientOptimized(n, k) << endl;
     return 0;
 }

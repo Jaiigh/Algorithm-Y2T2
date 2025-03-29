@@ -20,13 +20,17 @@ int main()
     B[1] = A[1];
 
     if (n >= 2)
+    {
         B[2] = A[1] + A[2];
+    }
     if (n >= 3)
+    {
         B[3] = max(B[1], B[2]) + A[3];
+    }
 
     for (int i = 4; i <= n; i++)
     {
-        B[i] = A[i] + max({B[i - 1], B[i - 2], B[i - 3]})
+        B[i] = A[i] + max({B[i - 1], B[i - 2], B[i - 3]});
     }
 
     cout << B[n] << endl;

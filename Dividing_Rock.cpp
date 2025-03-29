@@ -19,5 +19,9 @@ int main()
         {
             dp[j] = (prev[j - 1] + (j * prev[j]) % MOD) % MOD;
         }
+        prev = dp;
     }
+
+    cout << dp[k] << "\n";
+    return 0;
 }

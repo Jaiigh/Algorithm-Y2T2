@@ -33,4 +33,7 @@ int main()
     {
         cin >> c[i];
     }
+
+    cout << maxCustomers(c) << endl;
+    return 0;
 }

@@ -9,9 +9,9 @@ int main()
     cin >> N >> M >> K;
     vector<vector<int>> a(N, vector<int>(M)), p(N, vector<int>(M));
 
-    for (int i = 0; j < N; i++)
+    for (int i = 0; i < N; i++)
     {
-        for (int j = 0; i < M; j++)
+        for (int j = 0; j < M; j++)
         {
             cin >> a[i][j];
         }

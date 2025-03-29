@@ -1,40 +1,42 @@
 #include <iostream>
+#include <vector>
+#include <climits>
 
 using namespace std;
 
-int N, tmp, min1 = 101, min1_i = -1, sum = 0;
-int s[101];
-
-int main()
+int matrixChainMultiplication(vector<int> &s, int N)
 {
-    cin >> N;
+    vector<vector<int>> dp(N, vector<int>(N, 0));
 
-    for (int i = 0; i <= N; i++)
+    for (int len = 2; len <= N; len++)
     {
-        cin >> tmp;
-        s[i] = tmp;
-
-        if (tmp < min1)
+        for (int i = 0; i <= N - len; i++)
         {
-            min1 = tmp;
-            min1_i = i;
+            int j = i + len - 1;
+            dp[i][j] = INT_MAX;
+
+            for (int k = i; k < j; k++)
+            {
+                int cost = dp[i][k] + dp[k + 1][j] + s[i] * s[k + 1] * s[j + 1];
+                dp[i][j] = min(dp[i][j], cost);
+            }
         }
     }
 
-    int j = min1_i + 2;
-    while (j <= N)
+    return dp[0][N - 1];
+}
+
+int main()
+{
+    int N;
+    cin >> N;
+
+    vector<int> s(N + 1);
+    for (int i = 0; i <= N; i++)
     {
-        sum += min1 * s[j - 1] * s[j];
-        j++;
+        cin >> s[i];
     }
-    int k = min1_i - 2;
-    while (k >= 0)
-    {
-        sum += min1 * s[k + 1] * s[k];
-        k--;
-    }
-    if (min1_i != 0 && min1_i != N)
-        sum += s[0] * min1 * s[N];
-    cout << sum << endl;
+
+    cout << matrixChainMultiplication(s, N) << endl;
     return 0;
 }

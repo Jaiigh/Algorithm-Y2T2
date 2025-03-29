@@ -12,7 +12,7 @@ int main()
     vector<int> arr(n + 1);
     vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         cin >> arr[i];
     }
@@ -32,6 +32,15 @@ int main()
                 dp[l][r - 2] + max(arr[r], arr[r - 1])  // Eat last two
             });
         }
+    }
+
+    for (auto &e : dp)
+    {
+        for (auto &f : e)
+        {
+            cout << f << " ";
+        }
+        cout << endl;
     }
 
     cout << dp[1][n] << "\n";
